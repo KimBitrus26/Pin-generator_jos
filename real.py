@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
 import uuid #to generate a random pin security
+import os
 
 
 # init app object
@@ -9,7 +10,7 @@ app = Flask(__name__)
 
 # set up database
 app.config["SECRET_KEY"] = "123456KEY"
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///data.db"
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL") or "sqlite:///data.db"
 app.config["DATABASE_TRACK_MODIFITION"] = False
 
 # init db object
