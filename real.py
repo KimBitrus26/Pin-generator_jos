@@ -28,7 +28,7 @@ db.create_all()
 #index route
 @app.route("/", methods=["GET"])
 def index():
-    return jsonify({"message":"Click endpoint '/pin' to generate pin and endpoint '/pin/serial_number' to validate pin"})
+    return jsonify({"message":"Click endpoint '/pin/' to generate pin and endpoint '/pin/serial_number' to validate pin"})
 
 #generating a pin
 @app.route("/pin", methods=["GET"])
