@@ -25,19 +25,14 @@ class User(db.Model):
 db.create_all()
 
 
-#index route
-@app.route("/", methods=["GET"])
-def index():
-    return jsonify({"message":"Click endpoint '/pin/' to generate pin and endpoint '/pin/serial_number' to validate pin"})
-
 #generating a pin
-@app.route("/pin", methods=["GET"])
+@app.route("/", methods=["GET"])
 def  create_a_pin():
     pinLength = 15
     user = User(pin=str(uuid.uuid4().int)[0:pinLength])
     db.session.add(user)
     db.session.commit()
-    return jsonify({"PIn": user.pin, "Serial_number": user.serial_number})
+    return jsonify({"PIn_generated:": user.pin, "Serial_number:": user.serial_number})
 
 # validating a valid pin
 @app.route("/pin/<string:serial_number>", methods=["GET"])
