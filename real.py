@@ -2,6 +2,7 @@ from flask import Flask, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
 import uuid #to generate a random pin security
 import os
+from flask_migrate import Migrate
 
 
 # init app object
@@ -15,6 +16,8 @@ app.config["DATABASE_TRACK_MODIFITION"] = False
 
 # init db object
 db = SQLAlchemy(app)
+#init migrade
+migrate = Migrate(app, db)
 
 # create user class
 class User(db.Model):
