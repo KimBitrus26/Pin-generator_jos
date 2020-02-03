@@ -1,1 +1,1 @@
-web: flask upgrade; flask translate compile; gunicorn kimkazong:app
+web: flask translate compile; gunicorn kimkazong:app
