@@ -1,1 +1,1 @@
-web: flask translate compile; gunicorn kimkazong:app
+web: gunicorn real:app
