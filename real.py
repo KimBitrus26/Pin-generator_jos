@@ -24,9 +24,14 @@ class User(db.Model):
         self.pin = pin
 db.create_all()
 
+#index route
+@app.route("/", methods=["GET"])
+def index():
+    return jsonify({"message":"Click Endpoint https://kimkazongapp.herokuapp.com/pin to generate pin AND Endpoint https://kimkazongapp.herokuapp/<string:serial_number> to validate pin"})
+
 
 #generating a pin
-@app.route("/", methods=["GET"])
+@app.route("/pin", methods=["GET"])
 def  create_a_pin():
     pinLength = 15
     user = User(pin=str(uuid.uuid4().int)[0:pinLength])
