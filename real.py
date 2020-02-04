@@ -27,7 +27,7 @@ db.create_all()
 #index route
 @app.route("/", methods=["GET"])
 def index():
-    return jsonify({"message":"Click Endpoint https://kimkazongapp.herokuapp.com/pin to generate pin AND Endpoint https://kimkazongapp.herokuapp/<string:serial_number> to validate pin"})
+    return jsonify({"message":"Click Endpoint https://kimkazongapp.herokuapp.com/pin to generate pin AND Endpoint https://kimkazongapp.herokuapp/serial_number to validate pin"})
 
 
 #generating a pin
