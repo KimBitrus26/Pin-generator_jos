@@ -35,7 +35,7 @@ def  create_a_pin():
     return jsonify({"PIn_generated:": user.pin, "Serial_number:": user.serial_number})
 
 # validating a valid pin
-@app.route("/pin/<string:serial_number>", methods=["GET"])
+@app.route("/<string:serial_number>", methods=["GET"])
 def  get_a_pin(serial_number):
     pinNum = User.query.filter_by(serial_number=serial_number).first()
     if not pinNum:
